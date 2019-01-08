@@ -1,23 +1,24 @@
 package com.yador.meetingmanagerbe.auth.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.yador.meetingmanagerbe.meeting.entity.PersonEntity;
 
 public class AuthModel {
-    private Integer userId;
+    private PersonEntity personEntity;
     private String token;
 
-    public AuthModel(Integer userId, String token) {
-        this.userId = userId;
+    public AuthModel(PersonEntity personEntity, String token) {
+        this.personEntity = personEntity;
         this.token = token;
     }
 
-    @JsonProperty("userId")
-    public Integer getUserId() {
-        return userId;
+    @JsonProperty("person")
+    public PersonEntity getPersonEntity() {
+        return personEntity;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setPersonEntity(PersonEntity personEntity) {
+        this.personEntity = personEntity;
     }
 
     @JsonProperty("token")

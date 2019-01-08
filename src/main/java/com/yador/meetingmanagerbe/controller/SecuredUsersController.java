@@ -47,13 +47,13 @@ public class SecuredUsersController {
     }
 
     @PostMapping("/person/create")
-    public Integer createPerson(@AuthenticationPrincipal final User user, @RequestBody PersonEntity personEntity) {
+    public PersonEntity createPerson(@AuthenticationPrincipal final User user, @RequestBody PersonEntity personEntity) {
         personEntity.setId(user.getId());
         Integer id = user.getId();
         UserEntity userEntity = userRepo.findById(id).get();
         personEntity.setUser(userEntity);
         userEntity.setPerson(personEntity);
         personRepo.saveAndFlush(personEntity);
-        return personEntity.getId();
+        return personEntity;
     }
 }

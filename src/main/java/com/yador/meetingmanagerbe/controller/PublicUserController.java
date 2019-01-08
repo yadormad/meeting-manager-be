@@ -50,6 +50,6 @@ public class PublicUserController {
                 .login(username, password)
                 .orElseThrow(() -> new RuntimeException("invalid login and/or password"));
 
-        return personEntityOptional.map(personEntity -> new AuthModel(personEntity.getId(), token)).orElseGet(() -> new AuthModel(null, token));
+        return personEntityOptional.map(personEntity -> new AuthModel(personEntity, token)).orElseGet(() -> new AuthModel(null, token));
     }
 }

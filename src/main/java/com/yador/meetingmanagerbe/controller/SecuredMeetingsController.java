@@ -30,6 +30,11 @@ public class SecuredMeetingsController {
         return facilitatedMeetings;
     }
 
+    @GetMapping("/all/detailed")
+    public List<MeetingEntity> getAllDetailedMeetings() {
+        return meetings.findAll();
+    }
+
     @PostMapping("/")
     public void createMeeting(@RequestBody MeetingEntity meeting) {
         meetings.save(meeting);
